@@ -62,9 +62,13 @@
 
 <div class="map-overlay top">
 	<div class="map-overlay-inner">
-		<h1 class="colorh1">Playgrounds</h1><h1>&nbsp;in Freiburg</h1>
+		<h1 class="colorh1">Playgrounds</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
 		<p>
 			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/cd2b921e-8f87-44dd-acc2-b558f6331b34">Data: Freiburg geodata catalog</a>
+		</p>
+		<p>
+			Author: kaldera // Stefan <br>
+			<a href="https://github.com/stefanreifenberg/30daymap">Code can be found here</a>
 		</p>
 	</div>
 </div>
@@ -78,7 +82,7 @@
 		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 		position: absolute;
 		width: 20%;
-		height: 20%;
+		height: fit-content;
 		top: 0;
 		left: 0;
 		padding: 10px;
