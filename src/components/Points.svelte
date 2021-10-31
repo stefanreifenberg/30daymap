@@ -16,7 +16,7 @@
 				'raster-tiles': {
 				'type': 'raster',
 				'tiles': [
-					'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+					'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
 			],
 			'tileSize': 256,
 			'attribution': '&copy; <a href="http://www.osm.org" target="_blank">OpenStreetMap</a> contributors'
