@@ -19,7 +19,7 @@
 					'https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
 			],
 			'tileSize': 256,
-			'attribution': '&copy; <a href="http://www.osm.org" target="_blank">OpenStreetMap</a> contributors'
+			'attribution': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 			
 			}
 			},
