@@ -74,8 +74,7 @@
 </div>
 
 <style>
-	div {
-		width: 99vh;
+	#map {
 		height: 99vh;
 	}
 	.map-overlay {
