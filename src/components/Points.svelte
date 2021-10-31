@@ -16,10 +16,10 @@
 				'raster-tiles': {
 				'type': 'raster',
 				'tiles': [
-				'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}.png'
+					'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
 			],
 			'tileSize': 256,
-			'attribution': '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+			'attribution': '&copy; <a href="http://www.osm.org" target="_blank">OpenStreetMap</a> contributors'
 			
 			}
 			},
