@@ -75,8 +75,8 @@
 
 <style>
 	div {
-		width: 100%;
-		height: 100%;
+		width: 99vh;
+		height: 99vh;
 	}
 	.map-overlay {
 		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
