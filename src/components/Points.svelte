@@ -60,7 +60,7 @@
 
 <div id="map" bind:this={container}></div>
 
-<div class="map-overlay top">
+<div class="map-overlay">
 	<div class="map-overlay-inner">
 		<h1 class="colorh1">Playgrounds</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
 		<p>
@@ -80,7 +80,7 @@
 	.map-overlay {
 		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 		position: absolute;
-		width: 20%;
+		width: 450px;
 		height: fit-content;
 		top: 0;
 		left: 0;
