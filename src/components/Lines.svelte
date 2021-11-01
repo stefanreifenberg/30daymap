@@ -73,9 +73,7 @@
         </p>
         <div id="picture">
             <a title="Rob Faulkner from Leeds, United Kingdom, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:B%C3%A4chle_(6221487826).jpg"><img width="256" alt="Bächle (6221487826)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/B%C3%A4chle_%286221487826%29.jpg/256px-B%C3%A4chle_%286221487826%29.jpg"></a>
-
         </div>
-        
 		<p>
 			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/89141cd9-e688-4c7c-ba85-fe4ea776984d">Data: Freiburg geodata catalog</a>
 		</p>
