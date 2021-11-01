@@ -55,8 +55,8 @@
                     'line-cap': 'round'
                     },
                     'paint': {
-                    'line-color': '#888',
-                    'line-width': 8
+                    'line-color': '#99b9f0',
+                    'line-width': 5
                 }
 				});
 			});
@@ -67,9 +67,17 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-		<h1 class="colorh1">Playgrounds</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
+        <h1>Freiburger</h1><h1 class="colorh1">&nbsp;Bächle</h1>
+        <p>
+            “If visiting Freiburg for the first time, you will be pleasantly surprised by the many open streams flowing through the streets with crystal clear water.” (Description of the city from 1896)
+        </p>
+        <div id="picture">
+            <a title="Rob Faulkner from Leeds, United Kingdom, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:B%C3%A4chle_(6221487826).jpg"><img width="256" alt="Bächle (6221487826)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/B%C3%A4chle_%286221487826%29.jpg/256px-B%C3%A4chle_%286221487826%29.jpg"></a>
+
+        </div>
+        
 		<p>
-			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/cd2b921e-8f87-44dd-acc2-b558f6331b34">Data: Freiburg geodata catalog</a>
+			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/89141cd9-e688-4c7c-ba85-fe4ea776984d">Data: Freiburg geodata catalog</a>
 		</p>
 		<p>
 			Author: kaldera // Stefan <br>
@@ -98,6 +106,7 @@
 		border-radius: 3px;
 		padding: 10px;
 		margin-bottom: 10px;
+        text-align: center;
 	}
  
 	.map-overlay h1 {
@@ -106,6 +115,10 @@
 		margin: 0 0 10px;
 	}
 	.colorh1 {
-		color: #dba512;
+		color: #99b9f0;
 	}
+    #picture {
+        display: flex;
+        justify-content: center;
+    }
 </style>
