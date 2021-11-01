@@ -1,5 +1,8 @@
 <script>
-	import Points from './components/Points.svelte'
+	import Lines from './components/Lines.svelte';
+	import Points from './components/Points.svelte';
 </script>
 
+
 <Points />
+<Lines />
