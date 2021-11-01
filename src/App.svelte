@@ -3,4 +3,4 @@
 	import Points from './components/Points.svelte';
 </script>
 
-<Lines />
+<Points />
