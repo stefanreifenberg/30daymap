@@ -53,7 +53,7 @@
 				'layout': {},
                 'paint': {
                     'fill-color': '#0080ff', // blue color fill
-                    'fill-opacity': 0.5
+                    'fill-opacity': 0.2
                 }
 				});
             map.addLayer({
@@ -78,13 +78,10 @@
             
             // Copy coordinates array.
                 const coordinates = e.lngLat.wrap();
-
                 const description = e.features[0].properties.name;
             
             // Populate the popup and set its coordinates
             // based on the feature found.
-
-
                 popup.setLngLat(coordinates).setHTML('<h2>' + description + '</h2>').addTo(map);
             });
             
@@ -143,11 +140,4 @@
 		display: inline-block;
 		margin: 0 0 10px;
 	}
-	.colorh1 {
-		color: #99b9f0;
-	}
-    #picture {
-        display: flex;
-        justify-content: center;
-    }
 </style>
