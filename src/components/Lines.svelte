@@ -99,7 +99,7 @@
 		left: 0;
 		padding: 10px;
 	}
- 
+
 	.map-overlay .map-overlay-inner {
 		background-color: #fff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -121,4 +121,15 @@
         display: flex;
         justify-content: center;
     }
+	@media (max-width: 768px) {
+		#picture {
+			display: none;
+		}
+		.map-overlay {
+			width: 100%;
+			top: 0;
+			left: 0;
+			padding: 0;
+		}
+	}
 </style>
