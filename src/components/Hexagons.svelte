@@ -48,7 +48,7 @@
                 });
 
                 map.addLayer({
-                id: 'crashesHexGrid',
+                id: 'youthHexGrid',
                 type: 'fill',
                 source: 'hexGrid',
                 layout: {},
@@ -60,9 +60,12 @@
                     'fill-opacity': 0.7
                 }
             });
+			
 
 		});
+		console.log("map", map)
 	});
+	
 </script>
 
 <div id="map" bind:this={container}></div>
