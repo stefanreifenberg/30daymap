@@ -1,7 +1,16 @@
 
-# 30DayMapChallenge - Svelte WebGIS
+# 30DayMapChallenge - [Svelte WebGIS](https://freiburg.kaldera.dev)
 
-## Get started
+My goal for the 30DayMapChallenge is to create a WebGIS application based on open data from my home town. Every day will be a standalone application that will be deployed to netlify. In the end i will combine all the applications into one single application. 
+
+The following technologies are used:
+- [Svelte](https://svelte.dev/)
+- [Mapbox](https://www.mapbox.com/)
+- [Maplibre](https://maplibre.org/)
+
+The current day will always be available [here](https://freiburg.kaldera.dev).
+
+## Run the project locally
 
 Clone this repo
 
