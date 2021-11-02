@@ -57,27 +57,9 @@
                     property: 'bin',
                     stops: colorRamp.map((d, i) => [i, d])
                     },
-                    'fill-opacity': 0.6
+                    'fill-opacity': 0.7
                 }
             });
-
-			map.addSource('playgrounds', {
-			type: 'geojson',
-			data: 'test.json'
-			});
-			
-			map.addLayer({
-				'id': 'playgrounds-layer',
-				'type': 'circle',
-				'source': 'playgrounds',
-				'paint': {
-					'circle-radius': 8,
-					'circle-stroke-width': 0,
-					'circle-color': '#dba512',
-					'circle-stroke-color': 'white'
-				}
-				});
-			
 
 		});
 	});
