@@ -36,8 +36,8 @@
                 }
 			]
 			},
-                center: [ 7.85, 47.995], // starting position
-                zoom: 16 // starting zoom
+                center: [ 7.82, 47.995], // starting position
+                zoom: 11 // starting zoom
 			});
 		
 		map.on('load', () => {
@@ -83,7 +83,9 @@
             
             // Populate the popup and set its coordinates
             // based on the feature found.
-                popup.setLngLat(coordinates).setHTML(description).addTo(map);
+
+
+                popup.setLngLat(coordinates).setHTML('<h2>' + description + '</h2>').addTo(map);
             });
             
             map.on('mouseleave', 'bezirke-layer', () => {
@@ -99,15 +101,10 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-        <h1>Freiburger</h1><h1 class="colorh1">&nbsp;Bächle</h1>
+        <h1>Districts of Freiburg im Breisgau</h1>
         <p>
-            “If visiting Freiburg for the first time, you will be pleasantly surprised by the many open streams flowing through the streets with crystal clear water.” (Description of the city from 1896)
+            The city of Freiburg im Breisgau is divided into 28 districts. The formerly independent communities of Ebnet im Dreisamtal, Hochdorf im Breisgau, Kappel im Tal, Lehen im Breisgau, Munzingen, Opfingen, Tiengen am Tuniberg and Waltershofen, which were recently incorporated as part of the district reform in Baden-Württemberg, were introduced to a local constitution.
         </p>
-        <div id="picture">
-            <a title="Rob Faulkner from Leeds, United Kingdom, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:B%C3%A4chle_(6221487826).jpg"><img width="256" alt="Bächle (6221487826)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/B%C3%A4chle_%286221487826%29.jpg/256px-B%C3%A4chle_%286221487826%29.jpg"></a>
-            
-        </div>
-        <a href="https://commons.wikimedia.org/wiki/File:B%C3%A4chle_(6221487826).jpg">Rob Faulkner from Leeds, United Kingdom</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons
 		<p>
 			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/89141cd9-e688-4c7c-ba85-fe4ea776984d">Data: Freiburg geodata catalog</a>
 		</p>
