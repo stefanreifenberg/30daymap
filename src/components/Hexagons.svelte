@@ -5,8 +5,10 @@
 
 	let container;
 	let map;
-    const colorRamp = ['#feebe2','#fcc5c0','#fa9fb5','#f768a1','#dd3497','#ae017e','#7a0177']
-
+    const colors = ['#feebe2','#fcc5c0','#fa9fb5','#f768a1','#dd3497','#ae017e','#7a0177']
+	const layers = ['1','2','3','4','5','6','7'];
+	
+	
 	onMount(() => {
 
 		const map = new maplibre.Map({
@@ -55,15 +57,56 @@
                 paint: {
                     'fill-color': {
                     property: 'bin',
-                    stops: colorRamp.map((d, i) => [i, d])
+                    stops: colors.map((d, i) => [i, d]),
+					
                     },
                     'fill-opacity': 0.7
                 }
             });
 			
+			// Create a popup, but don't add it to the map yet.
+            const popup = new maplibre.Popup({
+                closeButton: false,
+                closeOnClick: false
+            });
+            
+            map.on('mousemove', 'youthHexGrid', (e) => {
+            // Change the cursor style as a UI indicator.
+                map.getCanvas().style.cursor = 'pointer';
+            
+            // Copy coordinates array.
+                const coordinates = e.lngLat.wrap();
+                const description = e.features[0].properties.count;
+            
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+                popup.setLngLat(coordinates).setHTML('<h2> No. of facilities: ' + description + '</h2>').addTo(map);
+            });
+            
+            map.on('mouseleave', 'youthHexGrid', () => {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });    
+
+			// create legend
+			const legend = document.getElementById('legend');
+
+			layers.forEach((layer, i) => {
+				const color = colors[i];
+				const item = document.createElement('div');
+				const key = document.createElement('span');
+				key.className = 'legend-key';
+				key.style.backgroundColor = color;
+
+				const value = document.createElement('span');
+				value.innerHTML = `${layer}`;
+				item.appendChild(key);
+				item.appendChild(value);
+				legend.appendChild(item);
+			});
 
 		});
-		console.log("map", map)
+		
 	});
 	
 </script>
@@ -76,15 +119,15 @@
         <p>
             The city of Freiburg im Breisgau is divided into 28 districts. The formerly independent communities of Ebnet im Dreisamtal, Hochdorf im Breisgau, Kappel im Tal, Lehen im Breisgau, Munzingen, Opfingen, Tiengen am Tuniberg and Waltershofen, which were recently incorporated as part of the district reform in Baden-Württemberg, were introduced to a local constitution.
         </p>
-		<p>
-			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/89141cd9-e688-4c7c-ba85-fe4ea776984d">Data: Freiburg geodata catalog</a>
-		</p>
+		<div id='legend'> </div>
 		<p>
 			Author: kaldera // Stefan <br>
 			<a href="https://github.com/stefanreifenberg/30daymap">Code can be found here</a>
 		</p>
 	</div>
 </div>
+
+
 
 <style>
 	#map {
@@ -113,5 +156,27 @@
 		line-height: 24px;
 		display: inline-block;
 		margin: 0 0 10px;
+	}
+	#legend {
+		display: flex;
+   		flex-direction: row;
+		margin: 0 auto;
+		font-size: 25px;
+		padding: 10px;
+		background-color: #fff;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 40px;
+		width: 200px;
+		z-index: 10;
+	}
+
+	:global(.legend-key) {
+		display: inline-block;
+		border-radius: 20%;
+		width: 25px;
+		height: 25px;
+		margin-right: 5px;
+		margin-bottom: 10px;
 	}
 </style>
