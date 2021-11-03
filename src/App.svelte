@@ -4,4 +4,4 @@
 	import Polygons from './components/Polygons.svelte';
 </script>
 
-<Lines />
+<Polygons />
