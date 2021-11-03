@@ -91,12 +91,18 @@
 			// create legend
 			const legend = document.getElementById('legend');
 
+			function addAlpha(color, opacity) {
+				// coerce values so ti is between 0 and 1.
+				var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+				return color + _opacity.toString(16).toUpperCase();
+			}
+
 			layers.forEach((layer, i) => {
 				const color = colors[i];
 				const item = document.createElement('div');
 				const key = document.createElement('span');
 				key.className = 'legend-key';
-				key.style.backgroundColor = color;
+				key.style.backgroundColor = addAlpha(color, 0.7);
 
 				const value = document.createElement('span');
 				value.innerHTML = `${layer}`;
