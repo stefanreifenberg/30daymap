@@ -24,39 +24,73 @@
 			}
 			},
 			'layers': [
-			{
-			'id': 'simple-tiles',
-			'type': 'raster',
-			'source': 'raster-tiles',
-			'minzoom': 0,
-			'maxzoom': 22
-			}
+                {
+                'id': 'simple-tiles',
+                'type': 'raster',
+                'source': 'raster-tiles',
+                'minzoom': 0,
+                'maxzoom': 22,
+                "paint" : {
+                        "raster-opacity" : 1
+                    }
+                }
 			]
 			},
-			center: [ 7.8, 48], // starting position
-			zoom: 12// starting zoom
+                center: [ 7.82, 47.995], // starting position
+                zoom: 11 // starting zoom
 			});
 		
-            map.on('load', () => {
-                map.addSource('wms-test-source', {
-                'type': 'raster',
-                // use the tiles option to specify a WMS tile source URL
-                // https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/
-                'tiles': [
-                'https://geoportal.freiburg.de/wms/uwsa_naturschutz/uwsa_naturschutz?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&CACHEID=3204984&LAYERS=artenschutz&CRS=EPSG%3A25832&STYLES=&WIDTH=2352&HEIGHT=1628&BBOX=379030.0168020909%2C5293982.928296685%2C441259.9831979091%2C5337057.071703315'
-                ],
-                'tileSize': 256
+		map.on('load', () => {
+			map.addSource('bezirke', {
+			type: 'geojson',
+			data: 'freiburg_forest.json'
+			});
+			
+			map.addLayer({
+				'id': 'bezirke-layer',
+				'type': 'fill',
+				'source': 'bezirke',
+				'layout': {},
+                'paint': {
+                    'fill-color': '#0080ff', // blue color fill
+                    'fill-opacity': 0.2
+                }
+				});
+            map.addLayer({
+                'id': 'outline',
+                'type': 'line',
+                'source': 'bezirke',
+                'layout': {},
+                'paint': {
+                    'line-color': '#000',
+                    'line-width': 3
+                }
                 });
-                map.addLayer(
-                {
-                'id': 'wms-test-layer',
-                'type': 'raster',
-                'source': 'wms-test-source',
-                'paint': {}
-                },
-                'aeroway-line'
-                );
+            // Create a popup, but don't add it to the map yet.
+            const popup = new maplibre.Popup({
+                closeButton: false,
+                closeOnClick: false
             });
+            
+            map.on('mousemove', 'bezirke-layer', (e) => {
+            // Change the cursor style as a UI indicator.
+                map.getCanvas().style.cursor = 'pointer';
+            
+            // Copy coordinates array.
+                const coordinates = e.lngLat.wrap();
+                const description = e.features[0].properties.name;
+            
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+                popup.setLngLat(coordinates).setHTML('<h2>' + description + '</h2>').addTo(map);
+            });
+            
+            map.on('mouseleave', 'bezirke-layer', () => {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });    
+
+			});
 	});
 </script>
 
@@ -64,9 +98,12 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-		<h1 class="colorh1">Playgrounds</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
+        <h1>Districts of Freiburg im Breisgau</h1>
+        <p>
+            The city of Freiburg im Breisgau is divided into 28 districts. The formerly independent communities of Ebnet im Dreisamtal, Hochdorf im Breisgau, Kappel im Tal, Lehen im Breisgau, Munzingen, Opfingen, Tiengen am Tuniberg and Waltershofen, which were recently incorporated as part of the district reform in Baden-Württemberg, were introduced to a local constitution.
+        </p>
 		<p>
-			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/cd2b921e-8f87-44dd-acc2-b558f6331b34">Data: Freiburg geodata catalog</a>
+			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/89141cd9-e688-4c7c-ba85-fe4ea776984d">Data: Freiburg geodata catalog</a>
 		</p>
 		<p>
 			Author: kaldera // Stefan <br>
@@ -95,14 +132,12 @@
 		border-radius: 3px;
 		padding: 10px;
 		margin-bottom: 10px;
+        text-align: center;
 	}
  
 	.map-overlay h1 {
 		line-height: 24px;
 		display: inline-block;
 		margin: 0 0 10px;
-	}
-	.colorh1 {
-		color: #dba512;
 	}
 </style>
