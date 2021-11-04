@@ -139,8 +139,6 @@
 	</div>
 </div>
 
-
-
 <style>
 	#map {
 		height: 99vh;
