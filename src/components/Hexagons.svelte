@@ -7,8 +7,7 @@
 	let map;
     const colors = ['#feebe2','#fcc5c0','#fa9fb5','#f768a1','#dd3497','#ae017e','#7a0177']
 	const layers = ['1','2','3','4','5','6','7'];
-	
-	
+
 	onMount(() => {
 
 		const map = new maplibre.Map({
@@ -40,7 +39,7 @@
 			]
 			},
                 center: [ 7.82, 47.995], // starting position
-                zoom: 11 // starting zoom
+                zoom: 12 // starting zoom
 			});
 		
 		map.on('load', () => {
@@ -121,14 +120,21 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-        <h1>Districts of Freiburg im Breisgau</h1>
+        <h1>Density of institutions for child and youth work in Freiburg</h1>
         <p>
-            The city of Freiburg im Breisgau is divided into 28 districts. The formerly independent communities of Ebnet im Dreisamtal, Hochdorf im Breisgau, Kappel im Tal, Lehen im Breisgau, Munzingen, Opfingen, Tiengen am Tuniberg and Waltershofen, which were recently incorporated as part of the district reform in Baden-Württemberg, were introduced to a local constitution.
+            Freiburg has a lot to offer for young families and children. 
+			I looked at the density of child and youth work in Freiburg to find where most of the institutions are situated.
+			Darker colors represent higher densities.
         </p>
-		<div id='legend'> </div>
+		<p style="text-align: center;">Number of facilities</p>
+		<div id='legend'></div>
 		<p>
 			Author: kaldera // Stefan <br>
 			<a href="https://github.com/stefanreifenberg/30daymap">Code can be found here</a>
+		</p>
+		<p>
+			Inspired by: <br>
+			<a href="https://observablehq.com/@clhenrick/mapboxgl-hexbin-map">Chris Henrick</a>
 		</p>
 	</div>
 </div>
@@ -155,7 +161,7 @@
 		border-radius: 3px;
 		padding: 10px;
 		margin-bottom: 10px;
-        text-align: center;
+        text-align: left;
 	}
  
 	.map-overlay h1 {

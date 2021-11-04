@@ -66,25 +66,28 @@
                     'line-width': 3
                 }
                 });
-            // Create a popup, but don't add it to the map yet.
+            // Create our popup
             const popup = new maplibre.Popup({
                 closeButton: false,
                 closeOnClick: false
             });
             
+			// Add a mousemove event to the map
             map.on('mousemove', 'bezirke-layer', (e) => {
-            // Change the cursor style as a UI indicator.
+            	// Change the cursor style as a UI indicator.
                 map.getCanvas().style.cursor = 'pointer';
             
-            // Copy coordinates array.
+            	// Get the mouse coordinates
                 const coordinates = e.lngLat.wrap();
+				// Get the feature from the layer
                 const description = e.features[0].properties.name;
             
             // Populate the popup and set its coordinates
             // based on the feature found.
                 popup.setLngLat(coordinates).setHTML('<h2>' + description + '</h2>').addTo(map);
             });
-            
+
+            // Remove everything on mouseleave
             map.on('mouseleave', 'bezirke-layer', () => {
                 map.getCanvas().style.cursor = '';
                 popup.remove();
