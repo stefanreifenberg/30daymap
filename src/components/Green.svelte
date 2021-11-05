@@ -55,7 +55,7 @@
                     'fill-color': '#0080ff', // blue color fill
                     'fill-opacity': 0.2
                 }
-				});
+			});
             map.addLayer({
                 'id': 'outline',
                 'type': 'line',
@@ -65,7 +65,7 @@
                     'line-color': '#000',
                     'line-width': 3
                 }
-                });
+            });
             // Create a popup, but don't add it to the map yet.
             const popup = new maplibre.Popup({
                 closeButton: false,
