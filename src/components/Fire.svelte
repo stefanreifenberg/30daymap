@@ -75,9 +75,9 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-		<h1 class="colorh1">Playgrounds</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
+		<h1 class="colorh1">Firestations</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
 		<p>
-			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/cd2b921e-8f87-44dd-acc2-b558f6331b34">Data: Freiburg geodata catalog</a>
+			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/fdbed410-50b9-43d9-9785-8a7c3768ac33">Data: Freiburg geodata catalog</a>
 		</p>
 		<p>
 			Author: kaldera // Stefan <br>
@@ -115,6 +115,6 @@
 		margin: 0 0 10px;
 	}
 	.colorh1 {
-		color: #dba512;
+		color: #DB1516;
 	}
 </style>
