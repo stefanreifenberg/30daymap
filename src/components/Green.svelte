@@ -52,8 +52,8 @@
 				'source': 'bezirke',
 				'layout': {},
                 'paint': {
-                    'fill-color': '#0080ff', // blue color fill
-                    'fill-opacity': 0.2
+                    'fill-color': '#397d4a', 
+                    'fill-opacity': 1
                 }
 			});
             map.addLayer({
@@ -66,29 +66,7 @@
                     'line-width': 3
                 }
             });
-            // Create a popup, but don't add it to the map yet.
-            const popup = new maplibre.Popup({
-                closeButton: false,
-                closeOnClick: false
-            });
-            
-            map.on('mousemove', 'bezirke-layer', (e) => {
-            // Change the cursor style as a UI indicator.
-                map.getCanvas().style.cursor = 'pointer';
-            
-            // Copy coordinates array.
-                const coordinates = e.lngLat.wrap();
-                const description = e.features[0].properties.name;
-            
-            // Populate the popup and set its coordinates
-            // based on the feature found.
-                popup.setLngLat(coordinates).setHTML('<h2>' + description + '</h2>').addTo(map);
-            });
-            
-            map.on('mouseleave', 'bezirke-layer', () => {
-                map.getCanvas().style.cursor = '';
-                popup.remove();
-            });    
+             
 
 			});
 	});
@@ -98,7 +76,7 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-        <h1>Districts of Freiburg im Breisgau</h1>
+        <h1 class="colorh1">Forests</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
         <p>
             The city of Freiburg im Breisgau is divided into 28 districts. The formerly independent communities of Ebnet im Dreisamtal, Hochdorf im Breisgau, Kappel im Tal, Lehen im Breisgau, Munzingen, Opfingen, Tiengen am Tuniberg and Waltershofen, which were recently incorporated as part of the district reform in Baden-Württemberg, were introduced to a local constitution.
         </p>
@@ -134,10 +112,12 @@
 		margin-bottom: 10px;
         text-align: center;
 	}
- 
 	.map-overlay h1 {
 		line-height: 24px;
 		display: inline-block;
 		margin: 0 0 10px;
+	}
+	.colorh1 {
+		color: #397d4a;
 	}
 </style>
