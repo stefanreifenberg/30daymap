@@ -76,12 +76,17 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-        <h1 class="colorh1">Forests</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
+        <h1 class="colorh1">Forest area</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
         <p>
-            The city of Freiburg im Breisgau is divided into 28 districts. The formerly independent communities of Ebnet im Dreisamtal, Hochdorf im Breisgau, Kappel im Tal, Lehen im Breisgau, Munzingen, Opfingen, Tiengen am Tuniberg and Waltershofen, which were recently incorporated as part of the district reform in Baden-Württemberg, were introduced to a local constitution.
+            Freiburg is called the "Black forest metropolis" because of its dense forested areas.
+			The city lies at the seam zone between two climatically and geologically completely different natural areas:
+			the "Upper Rhine Plain" in the west and the actual "Black Forest" in the east and south of the city.
+
+			60% of the 5,200 hectare urban forest belong to the Black Forest natural area.
+			The parts located in Günterstal, Littenweiler and Kappel as well as on Rosskopf and Schauinsland are known as the "mountain forest".
         </p>
 		<p>
-			<a href="https://geodaten.freiburg.de/geonetwork/srv/ger/catalog.search#/metadata/89141cd9-e688-4c7c-ba85-fe4ea776984d">Data: Freiburg geodata catalog</a>
+			<a href="https://www.openstreetmap.org/#map=12/47.9722/7.7830">Data: OpenStreetMap</a>
 		</p>
 		<p>
 			Author: kaldera // Stefan <br>
