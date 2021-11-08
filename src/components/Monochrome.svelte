@@ -76,9 +76,9 @@
             
             // Populate the popup and set its coordinates
             // based on the feature found.
-            if (description) {
-                popup.setLngLat(coordinates).setHTML('<h2>' + description + '</h2>').addTo(map);
-            }
+                if (description) {
+                    popup.setLngLat(coordinates).setHTML('<h2>' + description + '</h2>').addTo(map);
+                }
             });
 
             // Remove everything on mouseleave
