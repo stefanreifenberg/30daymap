@@ -95,15 +95,8 @@
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
-        <h1 class="colorh1">Buildings</h1><h1>&nbsp;in Freiburg i. Breisgau</h1>
-        <p>
-            Freiburg is called the "Black forest metropolis" because of its dense forested areas.
-			The city lies at the seam zone between two climatically and geologically completely different natural areas:
-			the "Upper Rhine Plain" in the west and the actual "Black Forest" in the east and south of the city.
-
-			60% of the 5,200 hectare urban forest belong to the Black Forest natural area.
-			The parts located in Günterstal, Littenweiler and Kappel as well as on Rosskopf and Schauinsland are known as the "mountain forest".
-        </p>
+        <h1>Buildings in Freiburg i. Breisgau</h1>
+        
 		<p>
 			<a href="https://www.openstreetmap.org/#map=12/47.9722/7.7830">Data: OpenStreetMap</a>
 		</p>
