@@ -3,6 +3,7 @@
 	import Points from './components/Points.svelte';
 	import Polygons from './components/Polygons.svelte';
 	import Green from './components/Green.svelte';
+	import Monochrome from './components/Monochrome.svelte';
 </script>
 
-<Green />
+<Monochrome />
