@@ -32,20 +32,21 @@
         z-index: 10;
     }
 
+
+
 </style>
 
 <div id="menu">
     <label for="satellite-v9">
         <input type=radio 
         id="satellite-v9" value={"https://tileserver-kaldera.herokuapp.com/services/natural_earth_cross_blended_hypso_shaded_relief.raster/tiles/{z}/{x}/{y}.webp"} bind:group={layerURL}>
-        satellite
+        <span>&#xE531;</span>satellite
     </label>
 
     <label for="light-v10">
         <input type=radio
         id="light-v10" value={"https://tileserver-kaldera.herokuapp.com/services/natural_earth_gray_earth_hypso_shaded_relief.raster/tiles/{z}/{x}/{y}.webp"} bind:group={layerURL}>
-        light
+        <span>&#xE531;</span>light
     </label>
     
 </div>
-

@@ -4,11 +4,11 @@
     import Layercontrol from './Layercontrol.svelte';
 	// import mapbox css
 	import 'mapbox-gl/dist/mapbox-gl.css';
-	
 
 	setContext(key, {
 		getMap: () => map
 	});
+    
 	let container;
 	let map;
 
