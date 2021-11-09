@@ -37,7 +37,7 @@
 			]
 			},
                 center: [ 7.82, 47.995], // starting position
-                zoom: 11 // starting zoom
+                zoom: 13 // starting zoom
 			});
 		
 		map.on('load', () => {
