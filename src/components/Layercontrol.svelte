@@ -3,7 +3,7 @@
     import { key } from './mapbox.js';
     const { getMap } = getContext(key);
 	const map = getMap();
-    let layerURL;
+    let layerURL = "https://tileserver-kaldera.herokuapp.com/services/natural_earth_cross_blended_hypso_shaded_relief.raster/tiles/{z}/{x}/{y}.webp";
 
     onMount (() => {
         const layerList = document.getElementById('menu');
