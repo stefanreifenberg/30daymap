@@ -8,7 +8,6 @@
     onMount (() => {
         const layerList = document.getElementById('menu');
         const inputs = layerList.getElementsByTagName('input');
-        console.log(map)
 
         for (const input of inputs) {
             input.onclick = (layer) => {
@@ -26,13 +25,12 @@
 <style>
     #menu {
         position: absolute;
-        background: #efefef;
+        background: #ffffff;
         padding: 10px;
         font-family: 'Open Sans', sans-serif;
         z-index: 10;
+        font-size: 25px;
     }
-
-
 
 </style>
 
@@ -40,13 +38,13 @@
     <label for="satellite-v9">
         <input type=radio 
         id="satellite-v9" value={"https://tileserver-kaldera.herokuapp.com/services/natural_earth_cross_blended_hypso_shaded_relief.raster/tiles/{z}/{x}/{y}.webp"} bind:group={layerURL}>
-        <span>&#xE531;</span>satellite
+        satellite
     </label>
 
     <label for="light-v10">
         <input type=radio
         id="light-v10" value={"https://tileserver-kaldera.herokuapp.com/services/natural_earth_gray_earth_hypso_shaded_relief.raster/tiles/{z}/{x}/{y}.webp"} bind:group={layerURL}>
-        <span>&#xE531;</span>light
+        light
     </label>
-    
+   
 </div>
