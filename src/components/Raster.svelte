@@ -12,43 +12,37 @@
 	let container;
 	let map;
 
+    function rotateCamera(timestamp) {
+// clamp the rotation between 0 -360 degrees
+// Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+    map.rotateTo((timestamp / 100) % 360, { duration: 0 });
+    // Request the next frame of the animation.
+    requestAnimationFrame(rotateCamera);
+    }
+
 	onMount(() => {
 		
-            map = new mapbox.Map({
-                container,
-                center: [7.75, 48.1],
-                zoom:  2.5,
-                minZoom: 0,
-                maxZoom: 10,
-                    // maxBounds: bounds,
-                style: {
-                        version: 8,
-                        sources: {
-                            tiles: {
-                                type: 'raster',
-                            tiles: [
-                                "https://tileserver-kaldera.herokuapp.com/services/natural_earth_cross_blended_hypso_shaded_relief.raster/tiles/{z}/{x}/{y}.webp"
-                            ],
-                            tileSize: 256
-                            }
-                        },
-                        layers: [
-                        {
-                            id: 'tiles',
-                            type: 'raster',
-                            source: 'tiles'
-                        }
-                    ]
-                }
-            });
+        map = new mapbox.Map({
+            style: 'mapbox://styles/yardy/ckvtjmw2p0r9v14nms2npjab8',
+            center: [7.848, 47.99],
+            zoom: 14.5,
+            pitch: 45,
+            bearing: -17.6,
+            container,
+            antialias: true
+        });
+
+        map.on('load', () => {
+            // Start the animation.
+            rotateCamera(0);
+        });
+        
 			
 	});
 </script>
 
 <div bind:this={container}>
-	{#if map}
-        <Layercontrol />
-	{/if}
+	
 </div>
 
 <style>
