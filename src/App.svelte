@@ -5,6 +5,7 @@
 	import Green from './components/Green.svelte';
 	import Monochrome from './components/Monochrome.svelte';
 	import Raster from './components/Raster.svelte';
+	import Threede from './components/Threede.svelte';
 </script>
 
-<Raster />
+<Threede />
