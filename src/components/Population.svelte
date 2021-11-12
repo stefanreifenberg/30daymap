@@ -3,19 +3,88 @@
 	import { maplibre } from './maplibre.js';
     import { mapbox } from './mapbox.js';
 	import 'mapbox-gl/dist/mapbox-gl.css';
+    import * as d3 from 'd3';
 
 	let container;
 	let map;
+    const colors = ['#1d4e89','#606d94','#a48d9e','#e8c9b3','#e9d7b8','#eae2bb']
+	const layers = ['45 - 4210','4210 - 8374','8374 - 12539','12539 - 16704','16704 - 20686','20686 - 25033'];
+
+    async function drawBars() {
+
+        const data = await d3.csv('freiburg_einwohner.csv', function(d) {
+            return {
+                name: d.name,
+                value: +d.einwohner
+            };
+            });
+
+            // sort data 
+            data.sort(function(a, b) {
+                return b.value - a.value;
+            });
+
+        const dimensions = ({  
+            height:700,
+            width:440,  
+            margin: {
+                top: 5,
+                right: 10,
+                bottom: 60,
+                left: 75,
+                } 
+        })
+        
+        const svg = d3.select("#chart")
+        .append("svg")
+            .attr("width", dimensions.width + dimensions.margin.left + dimensions.margin.right)
+            .attr("height", dimensions.height + dimensions.margin.top + dimensions.margin.bottom)
+        .append("g")
+            .attr("transform",
+                "translate(" + dimensions.margin.left + "," + dimensions.margin.top + ")")       
+            
+        const xScale = d3.scaleLinear()
+            .domain([0, d3.max(data, d => +d.value)])
+            .range([0, dimensions.width - dimensions.margin.right])
+            .nice()
+        
+        const xAxisGenerator = d3.axisBottom()
+            .scale(xScale)
+        
+        const xAxis = svg.append("g")
+            .call(xAxisGenerator)
+            .style("transform", `translateY(${dimensions.height}px)`)
+
+        const y = d3.scaleBand()
+            .range([ 0, dimensions.height ])
+            .domain(data.map(d => d.name))    
+            .padding(.1)
+        
+        svg.append("g")
+            .call(d3.axisLeft(y))
+        
+        svg.selectAll("myRect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("x", xScale(0) )
+            .attr("y", d => y(d.name))
+            .attr("width", d => xScale(d.value) - xScale(0))
+            .attr("height", y.bandwidth())
+            .attr("fill", "#8a89a6")
+    }
 
 	onMount(() => {
+        // draw barchart
+        drawBars();
 
 		map = new mapbox.Map({
 			    container,
 			    style: 'mapbox://styles/yardy/ckvv3iy6e0sfq15qvwc842ypc',
-                center: [ 7.82, 47.995],
+                center: [ 7.73, 47.995],
                 zoom: 11
 			});
-		
+        
 		map.on('load', () => {
 			map.addSource('bezirke', {
 			type: 'geojson',
@@ -69,6 +138,22 @@
             map.on('mouseleave', 'bezirke-layer', () => {
                 map.getCanvas().style.cursor = '';
                 popup.remove();
+            });
+            // create legend
+			const legend = document.getElementById('legend');
+
+            layers.forEach((layer, i) => {
+                const color = colors[i];
+                const item = document.createElement('div');
+                const key = document.createElement('span');
+                key.className = 'legend-key';
+                key.style.backgroundColor = color;
+
+                const value = document.createElement('span');
+                value.innerHTML = `${layer}`;
+                item.appendChild(key);
+                item.appendChild(value);
+                legend.appendChild(item);
             });    
 
 			});
@@ -76,6 +161,9 @@
 </script>
 
 <div id="map" bind:this={container}></div>
+<div id='legend'>
+    <h3>Population</h3>
+</div>
 
 <div class="map-overlay">
 	<div class="map-overlay-inner">
@@ -83,6 +171,8 @@
         <h2>
             Total population: <strong>229425</strong>
         </h2>
+        
+        <div id='chart'></div>
 		<p>
 			<a href="https://fritz.freiburg.de/Informationsportal/#app/mainpage//Einwohner">Data: Freiburg open data portal</a>
 		</p>
@@ -100,7 +190,7 @@
 	.map-overlay {
 		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 		position: absolute;
-		width: 450px;
+		width: 550px;
 		height: fit-content;
 		top: 0;
 		left: 0;
@@ -120,5 +210,32 @@
 		line-height: 24px;
 		display: inline-block;
 		margin: 0 0 10px;
+	}
+    #legend {
+        position: absolute;
+        top: 0;
+        right: 0;
+		display: flex;
+   		flex-direction: column;
+        align-items: flex-start;
+		margin: 0 auto;
+		font-size: 20px;
+		padding: 10px;
+		background-color: #fff;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 40px;
+		width: 200px;
+		z-index: 10;
+	}
+
+	:global(.legend-key) {
+		display: inline-block;
+        vertical-align: text-top;
+		border-radius: 20%;
+		width: 25px;
+		height: 25px;
+		margin-right: 5px;
+		margin-bottom: 10px;
 	}
 </style>
