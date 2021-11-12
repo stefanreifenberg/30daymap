@@ -169,7 +169,7 @@
 	<div class="map-overlay-inner">
         <h1>Population per district in Freiburg (2020)</h1>
         <h2>
-            Total population: <strong>229425</strong>
+            Total: <strong>229425</strong> inhabitants
         </h2>
         
         <div id='chart'></div>
