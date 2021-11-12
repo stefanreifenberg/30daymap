@@ -18,8 +18,10 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@maplibre/maplibre-gl-compare": "^0.5.0",
     "d3": "^7.1.1",
     "mapbox-gl": "^2.5.1",
+    "mapbox-gl-compare": "^0.4.0",
     "maplibre-gl": "^2.0.0-pre.1",
     "sirv-cli": "^1.0.0"
   }
