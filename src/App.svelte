@@ -6,6 +6,7 @@
 	import Monochrome from './components/Monochrome.svelte';
 	import Raster from './components/Raster.svelte';
 	import Threede from './components/Threede.svelte';
+	import Natearth from './components/Natearth.svelte';
 </script>
 
-<Threede />
+<Natearth />
