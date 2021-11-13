@@ -13,7 +13,7 @@
         map = new mapbox.Map({
             style: 'mapbox://styles/yardy/ckvxjho1t5yq415o7upzp3qfz',
             center: [7.848, 47.99],
-            zoom: 8,
+            zoom: 4,
             container,
             antialias: true
         });
